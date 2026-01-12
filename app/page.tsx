@@ -1,3 +1,6 @@
+import Image from "next/image";
+import Link from "next/link";
+
 export default function MainPage() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
@@ -6,46 +9,36 @@ export default function MainPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <div className="flex items-center gap-2">
-              <div className="h-8 w-8 rounded-lg bg-blue-500 flex items-center justify-center">
-                <svg
-                  className="w-5 h-5 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                  />
-                </svg>
-              </div>
-              <span className="font-semibold text-xl text-blue-700">
-                Janixware
-              </span>
-            </div>
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/logo.png"
+                alt="Janixware Logo"
+                width={200}
+                height={70}
+                className="h-14 w-auto"
+                priority
+              />
+            </Link>
 
             {/* Navigation Links */}
             <nav className="hidden md:flex items-center gap-6 text-sm text-slate-600">
               {[
-                "Home",
-                "About",
-                "Services",
-                "Projects",
-                "Process",
-                "Clients",
-                "Blog",
-                "Contact",
+                { name: "Home", href: "/" },
+                { name: "About", href: "/about" },
+                { name: "Services", href: "#services" },
+                { name: "Projects", href: "#projects" },
+                { name: "Process", href: "#process" },
+                { name: "Clients", href: "#clients" },
+                { name: "Blog", href: "#blog" },
+                { name: "Contact", href: "#contact" },
               ].map((item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
+                <Link
+                  key={item.name}
+                  href={item.href}
                   className="hover:text-blue-600 transition-colors font-medium"
                 >
-                  {item}
-                </a>
+                  {item.name}
+                </Link>
               ))}
             </nav>
 
@@ -101,19 +94,19 @@ export default function MainPage() {
                 </div>
               </div>
 
-              {/* Right Column - Laptop Image */}
+              {/* Right Column - Cover Image */}
               <div className="flex justify-center">
                 <div className="relative w-full max-w-lg">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 rounded-3xl blur-2xl opacity-20"></div>
-                  <div className="relative rounded-2xl shadow-2xl overflow-hidden bg-white p-2">
-                    <div className="aspect-video bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center">
-                      <div className="text-white text-center p-8">
-                        <div className="text-4xl mb-4">📊</div>
-                        <p className="text-sm opacity-90">
-                          Dashboard Preview
-                        </p>
-                      </div>
-                    </div>
+                  <div className="relative rounded-2xl shadow-2xl overflow-hidden">
+                    <Image
+                      src="/coverimage.png"
+                      alt="Janixware - Innovate. Develop. Deploy. Building the Future of Software Solutions"
+                      width={600}
+                      height={400}
+                      className="w-full h-auto object-cover rounded-2xl"
+                      priority
+                    />
                   </div>
                 </div>
               </div>
@@ -632,25 +625,14 @@ export default function MainPage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             {/* Brand Column */}
             <div className="md:col-span-1">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="h-8 w-8 rounded-lg bg-blue-500 flex items-center justify-center">
-                  <svg
-                    className="w-5 h-5 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                    />
-                  </svg>
-                </div>
-                <span className="font-semibold text-xl text-blue-700">
-                  Janixware
-                </span>
+              <div className="mb-4">
+            <Image
+                  src="/logo.png"
+                  alt="Janixware Logo"
+                  width={200}
+                  height={70}
+                  className="h-14 w-auto mb-4"
+                />
               </div>
               <p className="text-slate-600 mb-4 text-sm leading-relaxed">
                 Building simple and smart software solutions for a better
@@ -689,14 +671,14 @@ export default function MainPage() {
               <h3 className="font-semibold text-slate-900 mb-4">Company</h3>
               <ul className="space-y-2 text-sm text-slate-600">
                 <li>
-                  <a href="#home" className="hover:text-blue-600 transition-colors">
+                  <Link href="/" className="hover:text-blue-600 transition-colors">
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#about" className="hover:text-blue-600 transition-colors">
+                  <Link href="/about" className="hover:text-blue-600 transition-colors">
                     About
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a href="#contact" className="hover:text-blue-600 transition-colors">

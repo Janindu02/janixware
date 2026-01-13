@@ -13,7 +13,7 @@ export default function Navigation({ activePage }: NavigationProps) {
     { name: "Projects", href: "/projects" },
     { name: "Process", href: "/process" },
     { name: "Clients", href: "/clients" },
-    { name: "Blog", href: "#blog" },
+    { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
   ];
 

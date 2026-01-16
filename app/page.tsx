@@ -337,6 +337,45 @@ export default function MainPage() {
               </p>
             </div>
 
+            {/* Coming Soon Message */}
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-12 text-center">
+              <div className="max-w-2xl mx-auto">
+                <div className="mb-6">
+                  <svg
+                    className="w-20 h-20 text-blue-500 mx-auto"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold text-blue-900 mb-4">
+                  Coming Soon
+                </h3>
+                <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                  We&apos;re currently working on exciting projects that showcase
+                  our expertise. Check back soon to see our portfolio of
+                  innovative software solutions and successful client
+                  collaborations.
+                </p>
+                <div className="flex justify-center">
+                  <Link
+                    href="/contact"
+                    className="px-8 py-3 rounded-full bg-blue-500 text-white font-semibold shadow-lg hover:bg-blue-600 transition-colors inline-block cursor-pointer relative z-10"
+                  >
+                    Start Your Project
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* COMMENTED OUT - For future use when actual project data is available
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 {
@@ -384,15 +423,15 @@ export default function MainPage() {
               ))}
             </div>
 
-            {/* View All Projects Button */}
             <div className="flex justify-center mt-8">
               <Link
                 href="/projects"
                 className="px-6 py-3 rounded-full border-2 border-slate-300 bg-white text-slate-700 font-semibold hover:border-blue-500 hover:text-blue-600 transition-colors inline-block text-center"
-              >
+            >
                 View All Projects
               </Link>
             </div>
+            */}
           </div>
         </section>
 
@@ -409,8 +448,8 @@ export default function MainPage() {
               <p className="text-lg text-slate-600 max-w-3xl mx-auto">
                 Our streamlined process ensures efficient development and
                 successful project delivery, from concept to launch.
-              </p>
-            </div>
+          </p>
+        </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
@@ -447,7 +486,7 @@ export default function MainPage() {
                     {step.num}
                   </div>
                   <div className="mb-4">
-                    <Image
+            <Image
                       src={step.icon}
                       alt={step.title}
                       width={32}

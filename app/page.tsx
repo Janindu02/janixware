@@ -77,9 +77,9 @@ export default function MainPage() {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
               {[
-                { label: "Idea to Product", icon: "/icons/Selection.png" },
-                { label: "Modern Web", icon: "/icons/Selection (1).png" },
-                { label: "Secure & Reliable", icon: "/icons/Selection (2).png" },
+                { label: "Idea to Product", icon: "/icons/image1.png" },
+                { label: "Modern Web", icon: "/icons/image3.png" },
+                { label: "Secure & Reliable", icon: "/icons/image5.png" },
               ].map((item, index) => (
                 <div
                   key={index}
@@ -416,25 +416,25 @@ export default function MainPage() {
                   num: "01",
                   title: "Understand Your Idea",
                   desc: "Deep dive into your vision and requirements to grasp the core of your project.",
-                  icon: "💡",
+                  icon: "/icons/image1.png",
                 },
                 {
                   num: "02",
                   title: "Plan the Solution",
                   desc: "Strategize a detailed plan, outlining features, technologies, and project milestones.",
-                  icon: "🤝",
+                  icon: "/icons/image2.png",
                 },
                 {
                   num: "03",
                   title: "Build & Test",
                   desc: "Develop your software with precision, followed by rigorous testing for quality assurance.",
-                  icon: "</>",
+                  icon: "/icons/image3.png",
                 },
                 {
                   num: "04",
                   title: "Launch & Support",
                   desc: "Successfully deploy your solution and provide ongoing support for continuous success.",
-                  icon: "🏆",
+                  icon: "/icons/image4.png",
                 },
               ].map((step, index) => (
                 <div
@@ -444,7 +444,15 @@ export default function MainPage() {
                   <div className="text-sm font-semibold text-slate-400 mb-2">
                     {step.num}
                   </div>
-                  <div className="text-4xl mb-4">{step.icon}</div>
+                  <div className="mb-4">
+                    <Image
+                      src={step.icon}
+                      alt={step.title}
+                      width={32}
+                      height={32}
+                      className="w-8 h-8 object-contain"
+                    />
+                  </div>
                   <h3 className="text-xl font-bold text-blue-900 mb-3">
                     {step.title}
                   </h3>
@@ -543,6 +551,29 @@ export default function MainPage() {
                 className="px-6 py-3 rounded-full border-2 border-slate-300 bg-white text-slate-700 font-semibold hover:border-blue-500 hover:text-blue-600 transition-colors inline-block text-center"
               >
                 Read More Reviews
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="bg-white py-16 md:py-20">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+                Find answers to common questions about our software development
+                services and process.
+              </p>
+            </div>
+            <div className="text-center mb-8">
+              <Link
+                href="/faq"
+                className="px-8 py-4 rounded-full bg-blue-500 text-white font-semibold shadow-lg hover:bg-blue-600 transition-colors inline-block"
+              >
+                View All FAQs
               </Link>
             </div>
           </div>

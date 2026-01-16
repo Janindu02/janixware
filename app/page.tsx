@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 
@@ -25,12 +26,18 @@ export default function MainPage() {
                   businesses work better, save time, and grow.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <button className="px-8 py-3 rounded-full bg-blue-500 text-white font-semibold shadow-lg hover:bg-blue-600 transition-colors">
+                  <Link
+                    href="/services"
+                    className="px-8 py-3 rounded-full bg-blue-500 text-white font-semibold shadow-lg hover:bg-blue-600 transition-colors inline-block text-center"
+                  >
                     Get Started
-                  </button>
-                  <button className="px-8 py-3 rounded-full bg-white text-blue-600 border-2 border-blue-500 font-semibold hover:bg-blue-50 transition-colors">
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="px-8 py-3 rounded-full bg-white text-blue-600 border-2 border-blue-500 font-semibold hover:bg-blue-50 transition-colors inline-block text-center"
+                  >
                     Contact Us
-                  </button>
+                  </Link>
                 </div>
               </div>
 
@@ -39,14 +46,14 @@ export default function MainPage() {
                 <div className="relative w-full max-w-lg">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 rounded-3xl blur-2xl opacity-20"></div>
                   <div className="relative rounded-2xl shadow-2xl overflow-hidden">
-                    <Image
-                      src="/coverimage.png"
+        <Image
+                      src="/image8.jpg"
                       alt="Janixware - Innovate. Develop. Deploy. Building the Future of Software Solutions"
                       width={600}
                       height={400}
                       className="w-full h-auto object-cover rounded-2xl"
-                      priority
-                    />
+          priority
+        />
                   </div>
                 </div>
               </div>
@@ -70,16 +77,22 @@ export default function MainPage() {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
               {[
-                { label: "Idea to Product", icon: "💡" },
-                { label: "Modern Web", icon: "🖥️" },
-                { label: "Secure & Reliable", icon: "🛡️" },
+                { label: "Idea to Product", icon: "/icons/Selection.png" },
+                { label: "Modern Web", icon: "/icons/Selection (1).png" },
+                { label: "Secure & Reliable", icon: "/icons/Selection (2).png" },
               ].map((item, index) => (
                 <div
                   key={index}
                   className="flex flex-col items-center gap-3"
                 >
-                  <div className="h-16 w-16 rounded-full bg-blue-50 flex items-center justify-center text-3xl">
-                    {item.icon}
+                  <div className="h-16 w-16 rounded-full bg-blue-50 flex items-center justify-center p-3">
+                    <Image
+                      src={item.icon}
+                      alt={item.label}
+                      width={40}
+                      height={40}
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   <p className="text-base font-semibold text-blue-800">
                     {item.label}
@@ -253,24 +266,13 @@ export default function MainPage() {
               {/* Left Column - Image */}
               <div className="order-2 md:order-1">
                 <div className="rounded-2xl overflow-hidden shadow-xl">
-                  <div className="aspect-[4/3] bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
-                    <div className="text-center text-blue-600">
-                      <svg
-                        className="w-24 h-24 mx-auto mb-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1.5}
-                          d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                        />
-                      </svg>
-                      <p className="text-lg font-medium">Business Meeting</p>
-                    </div>
-                  </div>
+                  <Image
+                    src="/image1.jpg"
+                    alt="Business team meeting"
+                    width={600}
+                    height={450}
+                    className="w-full h-auto object-cover aspect-[4/3]"
+                  />
                 </div>
               </div>
 
@@ -378,6 +380,16 @@ export default function MainPage() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* View All Projects Button */}
+            <div className="flex justify-center mt-8">
+              <Link
+                href="/projects"
+                className="px-6 py-3 rounded-full border-2 border-slate-300 bg-white text-slate-700 font-semibold hover:border-blue-500 hover:text-blue-600 transition-colors inline-block text-center"
+              >
+                View All Projects
+              </Link>
             </div>
           </div>
         </section>
@@ -526,9 +538,12 @@ export default function MainPage() {
             </div>
 
             <div className="flex justify-center">
-              <button className="px-6 py-3 rounded-full border-2 border-slate-300 bg-white text-slate-700 font-semibold hover:border-blue-500 hover:text-blue-600 transition-colors">
+              <Link
+                href="/clients"
+                className="px-6 py-3 rounded-full border-2 border-slate-300 bg-white text-slate-700 font-semibold hover:border-blue-500 hover:text-blue-600 transition-colors inline-block text-center"
+              >
                 Read More Reviews
-              </button>
+              </Link>
             </div>
           </div>
         </section>
@@ -539,7 +554,10 @@ export default function MainPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Have an idea or a project? Let&apos;s build it together.
             </h2>
-            <button className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-blue-600 font-semibold shadow-lg hover:bg-blue-50 transition-colors">
+            <a
+              href="tel:+94713974674"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-blue-600 font-semibold shadow-lg hover:bg-blue-50 transition-colors"
+            >
               <svg
                 className="w-5 h-5"
                 fill="none"
@@ -554,8 +572,8 @@ export default function MainPage() {
                 />
               </svg>
               Get a Free Call
-            </button>
-          </div>
+          </a>
+        </div>
         </section>
       </main>
 

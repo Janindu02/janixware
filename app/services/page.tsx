@@ -255,9 +255,12 @@ export default function ServicesPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Have an idea or a project? Let&apos;s build it together.
             </h2>
-            <button className="px-8 py-4 rounded-full bg-white text-blue-600 font-semibold shadow-lg hover:bg-blue-50 transition-colors">
+            <a
+              href="tel:+94713974674"
+              className="px-8 py-4 rounded-full bg-white text-blue-600 font-semibold shadow-lg hover:bg-blue-50 transition-colors inline-block"
+            >
               Get a Call
-            </button>
+            </a>
           </div>
         </section>
       </main>

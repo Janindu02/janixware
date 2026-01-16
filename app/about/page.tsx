@@ -335,9 +335,12 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-6">
               Ready to Collaborate on Your Next Big Idea?
             </h2>
-            <button className="px-8 py-4 rounded-full bg-blue-500 text-white font-semibold shadow-lg hover:bg-blue-600 transition-colors">
+            <a
+              href="tel:+94713974674"
+              className="px-8 py-4 rounded-full bg-blue-500 text-white font-semibold shadow-lg hover:bg-blue-600 transition-colors inline-block"
+            >
               Get a Call
-            </button>
+            </a>
           </div>
         </section>
       </main>

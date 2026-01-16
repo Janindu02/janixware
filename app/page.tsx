@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
+import FAQAccordion from "./components/FAQAccordion";
+import { faqData } from "./faq/page";
 
 export default function MainPage() {
   return (
@@ -568,14 +570,12 @@ export default function MainPage() {
                 services and process.
               </p>
             </div>
-            <div className="text-center mb-8">
-              <Link
-                href="/faq"
-                className="px-8 py-4 rounded-full bg-blue-500 text-white font-semibold shadow-lg hover:bg-blue-600 transition-colors inline-block"
-              >
-                View All FAQs
-              </Link>
-            </div>
+            <FAQAccordion
+              faqs={faqData}
+              showLimit={6}
+              showViewMore={true}
+              viewMoreLink="/faq"
+            />
           </div>
         </section>
 

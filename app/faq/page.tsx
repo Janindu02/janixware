@@ -1,10 +1,8 @@
-"use client";
-
-import { useState } from "react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import FAQAccordion from "../components/FAQAccordion";
 
-const faqData = [
+export const faqData = [
   {
     question:
       "What types of software solutions does Janixware develop?",
@@ -36,11 +34,39 @@ const faqData = [
     answer:
       "We focus on building simple and smart software solutions that are easy to understand and use. Our experienced team combines technical expertise with transparent communication, ensuring you're involved throughout the process. We deliver high-quality, scalable products with competitive pricing and dedicated support.",
   },
+  {
+    question: "What technologies do you use for development?",
+    answer:
+      "We use modern, industry-standard technologies including React, Next.js, Node.js, Python, and various cloud platforms. Our technology stack is selected based on your project requirements, ensuring optimal performance, scalability, and maintainability. We stay updated with the latest trends and best practices in software development.",
+  },
+  {
+    question: "How do you ensure the security of our data?",
+    answer:
+      "Security is our top priority. We implement industry-standard security measures including encryption, secure authentication, regular security audits, and compliance with data protection regulations. We follow secure coding practices and conduct thorough testing to identify and mitigate potential vulnerabilities.",
+  },
+  {
+    question: "Can you help with mobile app development?",
+    answer:
+      "Yes, we develop both native and cross-platform mobile applications for iOS and Android. Whether you need a standalone mobile app or one that integrates with your existing web platform, we can create user-friendly, high-performance mobile solutions that meet your business objectives.",
+  },
+  {
+    question: "What is your pricing model?",
+    answer:
+      "Our pricing is flexible and based on project scope, complexity, and requirements. We offer transparent pricing with detailed quotes for each project. We provide fixed-price contracts for well-defined projects and hourly rates for ongoing support or flexible development needs. Contact us for a customized quote tailored to your project.",
+  },
+  {
+    question: "Do you offer maintenance and updates?",
+    answer:
+      "Yes, we provide comprehensive maintenance and update services including bug fixes, security updates, performance optimization, feature additions, and technical support. We offer various maintenance packages to suit your needs, ensuring your software remains secure, up-to-date, and functioning optimally.",
+  },
+  {
+    question: "How do you handle project communication and updates?",
+    answer:
+      "We maintain transparent and regular communication throughout the project lifecycle. You'll receive weekly progress updates, have access to project management tools, and can schedule regular meetings with our team. We believe in keeping you informed at every stage and welcome your feedback to ensure the project aligns with your vision.",
+  },
 ];
 
 export default function FAQPage() {
-  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
-
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <Navigation activePage="FAQ" />
@@ -62,46 +88,11 @@ export default function FAQPage() {
         {/* FAQ Section */}
         <section className="bg-white py-16 md:py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="space-y-4">
-              {faqData.map((faq, index) => (
-                <div
-                  key={index}
-                  className="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden hover:shadow-md transition-shadow"
-                >
-                  <button
-                    type="button"
-                    onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
-                    className="w-full px-6 py-5 flex items-center justify-between text-left"
-                  >
-                    <span className="font-semibold text-blue-900 pr-4">
-                      {faq.question}
-                    </span>
-                    <svg
-                      className={`w-5 h-5 text-blue-600 flex-shrink-0 transition-transform ${
-                        openFAQ === index ? "rotate-180" : ""
-                      }`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                  </button>
-                  {openFAQ === index && (
-                    <div className="px-6 pb-5">
-                      <p className="text-slate-600 leading-relaxed">
-                        {faq.answer}
-                      </p>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
+            <FAQAccordion
+              faqs={faqData}
+              showLoadMore={true}
+              loadMoreCount={6}
+            />
           </div>
         </section>
 

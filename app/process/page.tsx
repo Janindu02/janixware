@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 
@@ -188,7 +189,10 @@ export default function ProcessPage() {
               Let&apos;s turn your innovative ideas into powerful digital
               solutions. Contact us today to discuss your vision.
             </p>
-            <button className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-blue-900 text-white font-semibold shadow-lg hover:bg-blue-800 transition-colors">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-blue-900 text-white font-semibold shadow-lg hover:bg-blue-800 transition-colors cursor-pointer"
+            >
               <span>Start Your Project</span>
               <svg
                 className="w-5 h-5"
@@ -203,7 +207,7 @@ export default function ProcessPage() {
                   d="M9 5l7 7-7 7"
                 />
               </svg>
-            </button>
+            </Link>
           </div>
         </section>
       </main>

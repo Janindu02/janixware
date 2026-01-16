@@ -18,7 +18,7 @@ const faqs = [
   {
     question: "Where are you located?",
     answer:
-      "Our main office is located at 123 Software Ave, Tech City, TX 78701. We also work with clients remotely worldwide.",
+      "Our main office is located in Colombo, Sri Lanka. We also work with clients remotely worldwide.",
   },
   {
     question: "What services does Janixware provide?",
@@ -149,10 +149,10 @@ export default function ContactPage() {
                       <div>
                         <p className="font-medium text-slate-700">Email</p>
                         <a
-                          href="mailto:info@janixware.com"
+                          href="mailto:janixware@gmail.com"
                           className="text-slate-600 hover:text-blue-600 transition-colors"
                         >
-                          info@janixware.com
+                          janixware@gmail.com
                         </a>
                       </div>
                     </div>
@@ -161,10 +161,10 @@ export default function ContactPage() {
                       <div>
                         <p className="font-medium text-slate-700">Phone</p>
                         <a
-                          href="tel:+15551234567"
+                          href="tel:+94713974674"
                           className="text-slate-600 hover:text-blue-600 transition-colors"
                         >
-                          +1 (555) 123-4567
+                          +94 713 974 674
                         </a>
                       </div>
                     </div>
@@ -173,7 +173,7 @@ export default function ContactPage() {
                       <div>
                         <p className="font-medium text-slate-700">Address</p>
                         <p className="text-slate-600">
-                          123 Software Ave, Tech City, TX 78701
+                          Colombo Sri Lanka
                         </p>
                       </div>
                     </div>

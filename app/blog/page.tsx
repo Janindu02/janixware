@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 
@@ -82,6 +85,7 @@ const categories = [
 ];
 
 export default function BlogPage() {
+
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <Navigation activePage="Blog" />
@@ -90,13 +94,36 @@ export default function BlogPage() {
         {/* Hero Section */}
         <section className="bg-white py-16 md:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">
-              Blog & Insights
-            </h1>
-            <p className="text-lg md:text-xl text-slate-600 max-w-3xl">
-              Stay updated with Janixware&apos;s thoughts on software,
-              technology, and business solutions.
-            </p>
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <div>
+                <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">
+                  Blog & Insights
+                </h1>
+                <p className="text-lg md:text-xl text-slate-600 max-w-3xl">
+                  Stay updated with Janixware&apos;s thoughts on software,
+                  technology, and business solutions.
+                </p>
+              </div>
+              <Link
+                href="/tech-news"
+                className="px-8 py-3 rounded-full bg-blue-500 text-white font-semibold shadow-lg hover:bg-blue-600 transition-colors inline-flex items-center gap-2 self-start md:self-auto"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                  />
+                </svg>
+                Get Tech World News
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -254,4 +281,3 @@ export default function BlogPage() {
     </div>
   );
 }
-

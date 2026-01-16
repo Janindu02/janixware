@@ -1,12 +1,15 @@
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import TechIcon from "../components/TechIcon";
+import { servicesData } from "./serviceData";
 
-const services = [
-  {
-    title: "Website Development",
-    description:
-      "Crafting responsive, high-performance websites tailored to your business needs, ensuring a seamless user experience across all devices.",
-    icon: (
+// Icon mapping for services
+const getServiceIcon = (title: string) => {
+  const iconMap: Record<string, React.ReactElement> = {
+    "Website Development": (
       <svg
         className="w-8 h-8"
         fill="none"
@@ -21,12 +24,7 @@ const services = [
         />
       </svg>
     ),
-  },
-  {
-    title: "Landing Pages for Businesses",
-    description:
-      "Designing conversion-focused landing pages that effectively capture leads and drive action for your marketing campaigns.",
-    icon: (
+    "Landing Pages for Businesses": (
       <svg
         className="w-8 h-8"
         fill="none"
@@ -41,12 +39,7 @@ const services = [
         />
       </svg>
     ),
-  },
-  {
-    title: "Custom Software Solutions",
-    description:
-      "Developing bespoke software applications that streamline operations, automate tasks, and solve unique business challenges.",
-    icon: (
+    "Custom Software Solutions": (
       <svg
         className="w-8 h-8"
         fill="none"
@@ -61,12 +54,7 @@ const services = [
         />
       </svg>
     ),
-  },
-  {
-    title: "System Automation",
-    description:
-      "Implementing intelligent automation solutions to enhance efficiency, reduce manual effort, and optimize your workflows.",
-    icon: (
+    "System Automation": (
       <svg
         className="w-8 h-8"
         fill="none"
@@ -87,12 +75,7 @@ const services = [
         />
       </svg>
     ),
-  },
-  {
-    title: "API Development",
-    description:
-      "Building robust and secure APIs that enable seamless integration between your applications and third-party services.",
-    icon: (
+    "API Development": (
       <svg
         className="w-8 h-8"
         fill="none"
@@ -107,12 +90,7 @@ const services = [
         />
       </svg>
     ),
-  },
-  {
-    title: "Mobile App Development",
-    description:
-      "Creating intuitive and feature-rich native or cross-platform mobile applications for iOS and Android, bringing your ideas to users' fingertips.",
-    icon: (
+    "Mobile App Development": (
       <svg
         className="w-8 h-8"
         fill="none"
@@ -127,31 +105,34 @@ const services = [
         />
       </svg>
     ),
-  },
-];
+  };
+  return iconMap[title] || iconMap["Custom Software Solutions"];
+};
 
 const techStack = [
-  "JavaScript",
-  "TypeScript",
-  "Python",
-  "Go",
-  "PHP",
-  "React",
-  "Next.js",
-  "Node.js",
-  "Laravel",
-  "Django",
-  "PostgreSQL",
-  "MongoDB",
-  "MySQL",
-  "AWS",
-  "Azure",
-  "Google Cloud",
-  "Docker",
-  "Kubernetes",
-  "Jenkins",
-  "Figma",
-  "Adobe XD",
+  { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+  { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+  { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+  { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+  { name: "Go", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" },
+  { name: "PHP", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
+  { name: "Spring Boot", icon: "https://www.vectorlogo.zone/logos/springio/springio-icon.svg" },
+  { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+  { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+  { name: "Laravel", icon: "https://www.vectorlogo.zone/logos/laravel/laravel-icon.svg" },
+  { name: "Django", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" },
+  { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+  { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+  { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+  { name: "AWS", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
+  { name: "Azure", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" },
+  { name: "Google Cloud", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" },
+  { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+  { name: "Kubernetes", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
+  { name: "Jenkins", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" },
+  { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+  { name: "Adobe XD", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg" },
 ];
 
 export default function ServicesPage() {
@@ -177,14 +158,14 @@ export default function ServicesPage() {
         <section className="bg-slate-50 py-16 md:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {services.map((service, index) => (
+              {servicesData.map((service, index) => (
                 <div
                   key={index}
                   className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 flex flex-col hover:shadow-md transition-shadow"
                 >
                   {/* Icon */}
                   <div className="flex justify-center mb-4">
-                    <div className="text-blue-500">{service.icon}</div>
+                    <div className="text-blue-500">{getServiceIcon(service.title)}</div>
                   </div>
 
                   {/* Title */}
@@ -194,17 +175,23 @@ export default function ServicesPage() {
 
                   {/* Description */}
                   <p className="text-slate-600 mb-6 leading-relaxed flex-grow text-center">
-                    {service.description}
+                    {service.shortDescription}
                   </p>
 
                   {/* Action Buttons */}
                   <div className="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
-                    <button className="text-blue-500 hover:text-blue-600 font-medium text-sm transition-colors">
+                    <Link
+                      href={`/services/${service.slug}`}
+                      className="text-blue-500 hover:text-blue-600 font-medium text-sm transition-colors"
+                    >
                       Learn More
-                    </button>
-                    <button className="px-5 py-2 rounded-full bg-blue-500 text-white font-semibold text-sm shadow hover:bg-blue-600 transition-colors">
+                    </Link>
+                    <Link
+                      href="/contact"
+                      className="px-5 py-2 rounded-full bg-blue-500 text-white font-semibold text-sm shadow hover:bg-blue-600 transition-colors"
+                    >
                       Get a Quote
-                    </button>
+                    </Link>
                   </div>
                 </div>
               ))}
@@ -222,26 +209,12 @@ export default function ServicesPage() {
               {techStack.map((tech, index) => (
                 <div
                   key={index}
-                  className="flex flex-col items-center gap-2 text-center"
+                  className="flex flex-col items-center gap-3 text-center group hover:transform hover:scale-105 transition-transform duration-200"
                 >
-                  {/* Icon Placeholder */}
-                  <div className="h-12 w-12 rounded-lg border border-slate-300 bg-slate-50 flex items-center justify-center">
-                    <svg
-                      className="w-6 h-6 text-slate-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                      />
-                    </svg>
-                  </div>
-                  <span className="text-sm font-medium text-slate-700">
-                    {tech}
+                  {/* Technology Icon */}
+                  <TechIcon icon={tech.icon} name={tech.name} />
+                  <span className="text-sm font-medium text-slate-700 group-hover:text-blue-600 transition-colors">
+                    {tech.name}
                   </span>
                 </div>
               ))}
@@ -269,4 +242,3 @@ export default function ServicesPage() {
     </div>
   );
 }
-

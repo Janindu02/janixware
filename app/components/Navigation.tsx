@@ -49,9 +49,12 @@ export default function Navigation({ activePage }: NavigationProps) {
           </nav>
 
           {/* Get a Call Button */}
-          <button className="hidden sm:inline-flex px-5 py-2 rounded-full bg-transparent text-slate-700 text-sm font-medium hover:text-blue-600 transition-colors border border-slate-300 hover:border-blue-400">
+          <a
+            href="tel:+94713974674"
+            className="hidden sm:inline-flex px-5 py-2 rounded-full bg-transparent text-slate-700 text-sm font-medium hover:text-blue-600 transition-colors border border-slate-300 hover:border-blue-400"
+          >
             Get a Call
-          </button>
+          </a>
 
           {/* Mobile Menu Button */}
           <button className="md:hidden p-2 text-slate-600">

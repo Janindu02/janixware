@@ -247,7 +247,10 @@ export default function ContactPage() {
               Let&apos;s discuss how Janixware can build simple, smart, and
               effective software solutions for your business.
             </p>
-            <button className="px-8 py-4 rounded-full bg-white text-blue-900 font-semibold shadow-lg hover:bg-blue-50 transition-colors inline-flex items-center gap-2">
+            <a
+              href="tel:+94713974674"
+              className="px-8 py-4 rounded-full bg-white text-blue-900 font-semibold shadow-lg hover:bg-blue-50 transition-colors inline-flex items-center gap-2"
+            >
               <svg
                 className="w-5 h-5"
                 fill="none"
@@ -262,7 +265,7 @@ export default function ContactPage() {
                 />
               </svg>
               Get a Free Call
-            </button>
+            </a>
           </div>
         </section>
       </main>

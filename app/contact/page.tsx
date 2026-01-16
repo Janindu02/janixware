@@ -29,6 +29,70 @@ const faqs = [
 
 export default function ContactPage() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus({
+          type: "success",
+          message: data.message || "Message sent successfully!",
+        });
+        setFormData({ name: "", email: "", company: "", message: "" });
+
+        // Optionally open WhatsApp with pre-filled message
+        if (data.whatsappUrl) {
+          // You can uncomment this to automatically open WhatsApp
+          // window.open(data.whatsappUrl, '_blank');
+        }
+      } else {
+        setSubmitStatus({
+          type: "error",
+          message: data.error || "Failed to send message. Please try again.",
+        });
+      }
+    } catch (error) {
+      setSubmitStatus({
+        type: "error",
+        message: "An error occurred. Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
@@ -62,7 +126,18 @@ export default function ContactPage() {
                   Fill out the form below and we&apos;ll get back to you
                   promptly.
                 </p>
-                <form className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  {submitStatus.type && (
+                    <div
+                      className={`p-4 rounded-xl ${
+                        submitStatus.type === "success"
+                          ? "bg-green-50 text-green-800 border border-green-200"
+                          : "bg-red-50 text-red-800 border border-red-200"
+                      }`}
+                    >
+                      {submitStatus.message}
+                    </div>
+                  )}
                   <div>
                     <label
                       htmlFor="name"
@@ -74,6 +149,9 @@ export default function ContactPage() {
                       type="text"
                       id="name"
                       name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
                       placeholder="John Doe"
                       className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                     />
@@ -89,6 +167,9 @@ export default function ContactPage() {
                       type="email"
                       id="email"
                       name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
                       placeholder="john@example.com"
                       className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                     />
@@ -104,6 +185,8 @@ export default function ContactPage() {
                       type="text"
                       id="company"
                       name="company"
+                      value={formData.company}
+                      onChange={handleChange}
                       placeholder="Your Company Name"
                       className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                     />
@@ -118,6 +201,9 @@ export default function ContactPage() {
                     <textarea
                       id="message"
                       name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
                       rows={6}
                       placeholder="Tell us about your project or inquiry..."
                       className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-vertical"
@@ -125,9 +211,10 @@ export default function ContactPage() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full px-6 py-3 rounded-full bg-blue-500 text-white font-semibold shadow-lg hover:bg-blue-600 transition-colors"
+                    disabled={isSubmitting}
+                    className="w-full px-6 py-3 rounded-full bg-blue-500 text-white font-semibold shadow-lg hover:bg-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Submit Message
+                    {isSubmitting ? "Sending..." : "Submit Message"}
                   </button>
                 </form>
               </div>

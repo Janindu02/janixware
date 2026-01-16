@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import VideoPlayer from "../components/VideoPlayer";
 
 export default function AboutPage() {
   return (
@@ -50,16 +50,13 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              {/* Right Column - Image */}
+              {/* Right Column - Video */}
               <div className="flex justify-center">
                 <div className="relative w-full max-w-lg">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 rounded-3xl blur-2xl opacity-20"></div>
                   <div className="relative rounded-2xl shadow-2xl overflow-hidden">
-                    <Image
-                      src="/coverimage.png"
-                      alt="Developer workspace with laptop and monitors"
-                      width={600}
-                      height={400}
+                    <VideoPlayer
+                      src="/video/video1.mp4"
                       className="w-full h-auto object-cover rounded-2xl"
                     />
                   </div>
@@ -76,49 +73,44 @@ export default function AboutPage() {
               Meet Our Talented Team
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                {
-                  name: "Alice Johnson",
-                  role: "CEO & Founder",
-                  initial: "AJ",
-                },
-                {
-                  name: "David Smith",
-                  role: "Lead Software Engineer",
-                  initial: "DS",
-                },
-                {
-                  name: "Emily White",
-                  role: "UX/UI Designer",
-                  initial: "EW",
-                },
-                {
-                  name: "Michael Brown",
-                  role: "Project Manager",
-                  initial: "MB",
-                },
-                {
-                  name: "Sophia Lee",
-                  role: "Marketing Specialist",
-                  initial: "SL",
-                },
-                {
-                  name: "Chris Green",
-                  role: "Cloud Architect",
-                  initial: "CG",
-                },
-              ].map((member, index) => (
+              {/* Founder / CEO */}
+              <div className="bg-slate-50 rounded-2xl border border-slate-100 p-6 flex flex-col items-center text-center hover:shadow-lg transition-shadow">
+                <div className="h-24 w-24 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white text-2xl font-bold mb-4">
+                  JA
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 mb-1">
+                  Janindu Amaraweera
+                </h3>
+                <p className="text-sm text-slate-600">Founder & CEO</p>
+              </div>
+
+              {/* Coming Soon Cards */}
+              {[1, 2, 3, 4, 5].map((index) => (
                 <div
                   key={index}
-                  className="bg-slate-50 rounded-2xl border border-slate-100 p-6 flex flex-col items-center text-center hover:shadow-lg transition-shadow"
+                  className="bg-slate-50 rounded-2xl border border-slate-200 p-6 flex flex-col items-center text-center"
                 >
-                  <div className="h-24 w-24 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white text-2xl font-bold mb-4">
-                    {member.initial}
+                  <div className="h-24 w-24 rounded-full bg-slate-200 flex items-center justify-center mb-4">
+                    <svg
+                      className="w-12 h-12 text-slate-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                      />
+                    </svg>
                   </div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-1">
-                    {member.name}
+                  <h3 className="text-lg font-bold text-slate-400 mb-1">
+                    Coming Soon
                   </h3>
-                  <p className="text-sm text-slate-600">{member.role}</p>
+                  <p className="text-sm text-slate-500">
+                    We&apos;re expanding our team
+                  </p>
                 </div>
               ))}
             </div>
@@ -275,7 +267,7 @@ export default function AboutPage() {
         <section className="bg-white py-16 md:py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-center text-3xl md:text-4xl font-bold text-blue-900 mb-12">
-              Our Milestones
+              Our Journey & Future Goals
             </h2>
             <div className="relative pl-8 md:pl-12">
               {/* Vertical Line */}
@@ -283,41 +275,62 @@ export default function AboutPage() {
 
               {/* Milestones */}
               <div className="space-y-8">
+                {/* Actual Milestone */}
+                <div className="relative pl-8">
+                  {/* Circle Marker - Solid for achieved */}
+                  <div className="absolute left-[-20px] md:left-[-28px] top-1 h-4 w-4 rounded-full bg-blue-500 border-4 border-white shadow-sm"></div>
+                  <div className="text-lg font-bold text-blue-700 mb-2">
+                    2025
+                  </div>
+                  <p className="text-slate-600 leading-relaxed">
+                    Janixware founded by Janindu Amaraweera, a passionate software engineering student with a vision to simplify complex technology and build smart software solutions for businesses.
+                  </p>
+                </div>
+
+                {/* Future Goals */}
                 {[
                   {
-                    year: "2018",
-                    text: "Janixware founded by a passionate software engineering student with a vision to simplify complex tech.",
+                    year: "2026",
+                    text: "Launch our first successful projects and build a strong portfolio of client success stories.",
+                    isGoal: true,
                   },
                   {
-                    year: "2019",
-                    text: "Successfully launched first custom web application for a local startup, gaining traction.",
+                    year: "2027",
+                    text: "Expand our service offerings and establish partnerships with businesses across various industries.",
+                    isGoal: true,
                   },
                   {
-                    year: "2020",
-                    text: "Expanded team to include dedicated UX/UI designers and project managers.",
+                    year: "2028",
+                    text: "Build a dedicated team of talented professionals and establish Janixware as a trusted software solutions provider.",
+                    isGoal: true,
                   },
                   {
-                    year: "2021",
-                    text: "Achieved significant client growth, serving businesses across multiple industries.",
+                    year: "2029",
+                    text: "Achieve significant client growth and recognition in the software development industry.",
+                    isGoal: true,
                   },
                   {
-                    year: "2022",
-                    text: "Introduced AI-powered automation solutions, broadening our service portfolio.",
-                  },
-                  {
-                    year: "2023",
-                    text: "Recognized as a top emerging software development agency by industry review platforms.",
-                  },
-                  {
-                    year: "2024",
-                    text: "Opened new office premises to accommodate expanding operations and talent pool.",
+                    year: "2030",
+                    text: "Become a leading software solutions company, known for innovation and exceptional client service.",
+                    isGoal: true,
                   },
                 ].map((milestone, index) => (
                   <div key={index} className="relative pl-8">
-                    {/* Circle Marker */}
-                    <div className="absolute left-[-20px] md:left-[-28px] top-1 h-4 w-4 rounded-full bg-blue-500 border-4 border-white shadow-sm"></div>
-                    <div className="text-lg font-bold text-blue-700 mb-2">
+                    {/* Circle Marker - Outline for goals */}
+                    <div className={`absolute left-[-20px] md:left-[-28px] top-1 h-4 w-4 rounded-full border-4 border-white shadow-sm ${
+                      milestone.isGoal 
+                        ? "bg-white border-blue-300 ring-2 ring-blue-200" 
+                        : "bg-blue-500"
+                    }`}></div>
+                    <div className={`text-lg font-bold mb-2 ${
+                      milestone.isGoal ? "text-blue-600" : "text-blue-700"
+                    }`}>
                       {milestone.year}
+                      {milestone.isGoal && (
+                        <span className="ml-2 text-xs font-normal text-blue-500">
+                          (Goal)
+                        </span>
+                      )}
                     </div>
                     <p className="text-slate-600 leading-relaxed">
                       {milestone.text}

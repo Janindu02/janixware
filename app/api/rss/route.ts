@@ -45,7 +45,7 @@ export async function GET() {
               title: item.title || "No Title",
               link: item.link || "",
               description:
-                item.contentSnippet || item.content || item.description || "",
+                item.contentSnippet || item.content || (item as any).description || "",
               pubDate: item.pubDate || "",
               content: item.content || "",
               contentEncoded: (item as any).contentEncoded || "",

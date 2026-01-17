@@ -1,23 +1,101 @@
+import { Metadata } from "next";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import VideoPlayer from "../components/VideoPlayer";
 
+// SEO-optimized metadata for About page
+export const metadata: Metadata = {
+  title: "About Us - Software Development Company in Sri Lanka | Janixware",
+  description:
+    "Learn about Janixware, a leading software development company in Sri Lanka. Founded by Janindu Amaraweera, we specialize in custom software, web development, and mobile apps. Discover our team, values, and mission.",
+  keywords: [
+    "about Janixware",
+    "software development company Sri Lanka",
+    "custom software development Sri Lanka",
+    "software company Colombo",
+    "web development company Sri Lanka",
+    "Janindu Amaraweera",
+  ],
+  openGraph: {
+    title: "About Janixware - Software Development Company in Sri Lanka",
+    description:
+      "Learn about Janixware, a leading software development company in Sri Lanka. Founded by Janindu Amaraweera, we specialize in custom software, web development, and mobile apps.",
+    url: "https://www.janixware.com/about",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://www.janixware.com/about",
+  },
+};
+
+// LocalBusiness schema for About page
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareCompany",
+  "@id": "https://www.janixware.com/about",
+  name: "Janixware",
+  image: "https://www.janixware.com/logo.png",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Colombo",
+    addressRegion: "Western Province",
+    addressCountry: "LK",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    // Add coordinates when available
+    // latitude: "6.9271",
+    // longitude: "79.8612",
+  },
+  url: "https://www.janixware.com",
+  telephone: "+94-713-974-674",
+  email: "janixware@gmail.com",
+  priceRange: "$$",
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+    ],
+    opens: "09:00",
+    closes: "18:00",
+  },
+  founder: {
+    "@type": "Person",
+    name: "Janindu Amaraweera",
+  },
+  foundingDate: "2025",
+  description:
+    "Software development company in Sri Lanka specializing in custom software, web development, mobile apps, and digital transformation.",
+  areaServed: {
+    "@type": "Country",
+    name: "Worldwide",
+  },
+};
+
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-white text-slate-900">
-      <Navigation activePage="About" />
+    <>
+      {/* JSON-LD Structured Data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      <div className="min-h-screen bg-white text-slate-900">
+        <Navigation activePage="About" />
 
       <main>
         {/* Hero / Title Section */}
         <section className="bg-white py-16 md:py-20">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-6">
-              About Janixware
+              About Janixware - Software Development Company in Sri Lanka
             </h1>
             <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              We are a dedicated team passionate about crafting simple, smart,
-              and scalable software solutions that drive real business growth
-              and efficiency.
+              We are a dedicated software development company in Sri Lanka, passionate about crafting simple, smart, and scalable software solutions that drive real business growth and efficiency. Based in Colombo, we serve clients worldwide.
             </p>
           </div>
         </section>
@@ -29,24 +107,13 @@ export default function AboutPage() {
               {/* Left Column - Text Content */}
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-6">
-                  Our Journey: From Passion to Innovation
+                  Our Journey: From Passion to Innovation in Sri Lanka
                 </h2>
                 <p className="text-slate-600 mb-4 leading-relaxed">
-                  Janixware began as a passion project of a software
-                  engineering student, driven by a simple yet powerful idea: to
-                  make complex technology accessible and beneficial for
-                  businesses of all sizes. What started as a solo endeavor
-                  quickly grew into a collaborative team, united by a shared
-                  vision to build robust and intuitive software.
+                  Janixware began in late 2025 as a passion project by Janindu Amaraweera, a software engineering student from Sri Lanka, driven by a simple yet powerful idea: to make complex technology accessible and beneficial for businesses of all sizes. What started as a solo endeavor quickly grew into a collaborative vision to build robust and intuitive software solutions for businesses in Sri Lanka and worldwide.
                 </p>
                 <p className="text-slate-600 leading-relaxed">
-                  From those early days, we have maintained a relentless focus
-                  on innovation and client satisfaction. Our journey has been
-                  marked by continuous learning, adapting to new technologies,
-                  and a commitment to delivering solutions that not only meet
-                  but exceed expectations. We believe in building long-term
-                  partnerships, guiding our clients through every stage of their
-                  digital transformation.
+                  From our early days in Colombo, Sri Lanka, we have maintained a relentless focus on innovation and client satisfaction. Our journey has been marked by continuous learning, adapting to new technologies, and a commitment to delivering software solutions that not only meet but exceed expectations. We believe in building long-term partnerships, guiding our clients through every stage of their digital transformation.
                 </p>
               </div>
 
@@ -360,6 +427,7 @@ export default function AboutPage() {
 
       <Footer />
     </div>
+    </>
   );
 }
 

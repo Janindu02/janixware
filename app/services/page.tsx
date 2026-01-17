@@ -1,10 +1,71 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Metadata } from "next";
 import React from "react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import TechIcon from "../components/TechIcon";
 import { servicesData } from "./serviceData";
+
+// SEO-optimized metadata for Services page
+export const metadata: Metadata = {
+  title: "Services - Software Development Services in Sri Lanka | Janixware",
+  description:
+    "Janixware offers comprehensive software development services in Sri Lanka including custom software development, web development, mobile app development, API development, system automation, and digital transformation.",
+  keywords: [
+    "software development services Sri Lanka",
+    "custom software development Sri Lanka",
+    "web development services Sri Lanka",
+    "mobile app development Sri Lanka",
+    "API development Sri Lanka",
+    "system automation Sri Lanka",
+    "digital transformation Sri Lanka",
+    "software solutions Sri Lanka",
+  ],
+  openGraph: {
+    title: "Software Development Services in Sri Lanka | Janixware",
+    description:
+      "Comprehensive software development services including custom software, web development, mobile apps, API development, and system automation in Sri Lanka.",
+    url: "https://www.janixware.com/services",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://www.janixware.com/services",
+  },
+};
+
+// Service schema (JSON-LD)
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Software Development Services",
+  provider: {
+    "@type": "Organization",
+    name: "Janixware",
+    url: "https://www.janixware.com",
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "Worldwide",
+  },
+  availableChannel: {
+    "@type": "ServiceChannel",
+    serviceUrl: "https://www.janixware.com/services",
+  },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Software Development Services",
+    itemListElement: servicesData.map((service, index) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: service.title,
+        description: service.shortDescription,
+        url: `https://www.janixware.com/services/${service.slug}`,
+      },
+    })),
+  },
+};
 
 // Icon mapping for services
 const getServiceIcon = (title: string) => {
@@ -137,19 +198,24 @@ const techStack = [
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-white text-slate-900">
-      <Navigation activePage="Services" />
+    <>
+      {/* JSON-LD Structured Data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
+      />
+      <div className="min-h-screen bg-white text-slate-900">
+        <Navigation activePage="Services" />
 
       <main>
         {/* Hero / Heading Section */}
         <section className="bg-white py-16 md:py-20">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-6">
-              Our Services
+              Software Development Services in Sri Lanka
             </h1>
             <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              We empower businesses with robust and innovative software solutions
-              tailored to their unique challenges and goals.
+              Janixware empowers businesses in Sri Lanka and worldwide with robust and innovative software solutions tailored to their unique challenges and goals. From custom software development to web and mobile apps, we deliver excellence.
             </p>
           </div>
         </section>
@@ -240,5 +306,6 @@ export default function ServicesPage() {
 
       <Footer />
     </div>
+    </>
   );
 }

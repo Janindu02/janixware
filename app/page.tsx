@@ -8,7 +8,8 @@ import { faqData } from "./faq/page";
 
 // SEO-optimized metadata for homepage
 export const metadata: Metadata = {
-  title: "Janixware - Software Development Company in Sri Lanka | Custom Software & Web Development",
+  title: "Janixware - Software Development Company in Sri Lanka",
+  // title: "Janixware - Software Development Company in Sri Lanka | Custom Software & Web Development",
   description:
     "Janixware is a leading software development company in Sri Lanka. We provide custom software development, web development, mobile apps, and digital transformation services. Contact us for your software solutions.",
   keywords: [
@@ -101,7 +102,7 @@ export default function MainPage() {
               {/* Left Column - Text Content */}
               <div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-blue-900 leading-tight mb-6">
-                  Software Development Company in Sri Lanka | Custom Software Solutions
+                  We Build Simple and Smart Software Solutions
                 </h1>
                 <p className="text-lg text-slate-600 mb-8 max-w-lg leading-relaxed">
                   Janixware is a leading software development company in Sri Lanka. We create websites, custom software, and mobile apps that help businesses work better, save time, and grow. Our expert team delivers simple, smart software solutions tailored to your needs.

@@ -1,6 +1,32 @@
+import { Metadata } from "next";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import FAQAccordion from "../components/FAQAccordion";
+
+// SEO-optimized metadata for FAQ page
+export const metadata: Metadata = {
+  title: "FAQ - Software Development Services FAQ | Janixware Sri Lanka",
+  description:
+    "Find answers to frequently asked questions about Janixware's software development services in Sri Lanka. Learn about our process, pricing, technologies, timelines, and more.",
+  keywords: [
+    "software development FAQ",
+    "web development FAQ Sri Lanka",
+    "custom software FAQ",
+    "mobile app development FAQ",
+    "software company FAQ Sri Lanka",
+    "Janixware FAQ",
+  ],
+  openGraph: {
+    title: "FAQ - Software Development Services FAQ | Janixware",
+    description:
+      "Find answers to frequently asked questions about Janixware's software development services in Sri Lanka.",
+    url: "https://www.janixware.com/faq",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://www.janixware.com/faq",
+  },
+};
 
 export const faqData = [
   {
@@ -67,20 +93,39 @@ export const faqData = [
 ];
 
 export default function FAQPage() {
+  // FAQ schema (JSON-LD) for SEO
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqData.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
-    <div className="min-h-screen bg-white text-slate-900">
-      <Navigation activePage="FAQ" />
+    <>
+      {/* JSON-LD Structured Data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <div className="min-h-screen bg-white text-slate-900">
+        <Navigation activePage="FAQ" />
 
       <main>
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-blue-50 via-blue-100/50 to-white py-16 md:py-20">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-6">
-              Frequently Asked Questions
+              Software Development Services FAQ
             </h1>
             <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              Find answers to common questions about our software development
-              services and process.
+              Find answers to common questions about Janixware's software development services in Sri Lanka. Learn about our process, pricing, technologies, and more.
             </p>
           </div>
         </section>
@@ -139,6 +184,7 @@ export default function FAQPage() {
 
       <Footer />
     </div>
+    </>
   );
 }
 

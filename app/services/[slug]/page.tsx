@@ -30,25 +30,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${service.title} Services | Janixware - Software Solutions`,
-    description: service.metaDescription,
+    title: `${service.title} - Software Development Services in Sri Lanka | Janixware`,
+    description: `${service.metaDescription} Professional ${service.title.toLowerCase()} services in Sri Lanka by Janixware.`,
     keywords: [
+      `${service.title.toLowerCase()} Sri Lanka`,
+      "software development Sri Lanka",
+      "custom software development Sri Lanka",
+      "web development Sri Lanka",
       service.title.toLowerCase(),
-      "software development",
-      "web development",
-      "custom software",
       "Janixware",
       ...service.technologies.map((tech) => tech.toLowerCase()),
     ].join(", "),
     openGraph: {
-      title: `${service.title} Services | Janixware`,
-      description: service.metaDescription,
+      title: `${service.title} - Software Development Services in Sri Lanka | Janixware`,
+      description: `${service.metaDescription} Professional ${service.title.toLowerCase()} services in Sri Lanka.`,
+      url: `https://www.janixware.com/services/${slug}`,
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${service.title} Services | Janixware`,
+      title: `${service.title} - Software Development Services in Sri Lanka | Janixware`,
       description: service.metaDescription,
+    },
+    alternates: {
+      canonical: `https://www.janixware.com/services/${slug}`,
     },
   };
 }
@@ -61,9 +66,78 @@ export default async function ServiceDetailPage({ params }: Props) {
     notFound();
   }
 
+  // Service schema (JSON-LD) for SEO
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.title,
+    description: service.fullDescription,
+    provider: {
+      "@type": "Organization",
+      name: "Janixware",
+      url: "https://www.janixware.com",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Colombo",
+        addressCountry: "LK",
+      },
+      telephone: "+94-713-974-674",
+      email: "janixware@gmail.com",
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "Worldwide",
+    },
+    serviceType: service.title,
+    url: `https://www.janixware.com/services/${slug}`,
+    offers: {
+      "@type": "Offer",
+      url: `https://www.janixware.com/services/${slug}`,
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+    },
+    category: "Software Development Services",
+  };
+
+  // Breadcrumb schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://www.janixware.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Services",
+        item: "https://www.janixware.com/services",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: service.title,
+        item: `https://www.janixware.com/services/${slug}`,
+      },
+    ],
+  };
+
   return (
-    <div className="min-h-screen bg-white text-slate-900">
-      <Navigation activePage="Services" />
+    <>
+      {/* JSON-LD Structured Data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <div className="min-h-screen bg-white text-slate-900">
+        <Navigation activePage="Services" />
 
       <main>
         {/* Hero Section */}
@@ -71,10 +145,10 @@ export default async function ServiceDetailPage({ params }: Props) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-blue-900 mb-6">
-                {service.title}
+                {service.title} - Software Development Services in Sri Lanka
               </h1>
               <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-8">
-                {service.fullDescription}
+                {service.fullDescription} Janixware provides professional {service.title.toLowerCase()} services in Sri Lanka, helping businesses achieve their digital transformation goals.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link
@@ -327,6 +401,7 @@ export default async function ServiceDetailPage({ params }: Props) {
 
       <Footer />
     </div>
+    </>
   );
 }
 

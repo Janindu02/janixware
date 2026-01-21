@@ -7,7 +7,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.janixware.com';
   
   // Core pages
-  const routes = [
+  const routes: Array<{
+    path: string;
+    priority: number;
+    changefreq: 'daily' | 'monthly' | 'weekly' | 'always' | 'hourly' | 'yearly' | 'never';
+  }> = [
     { path: '', priority: 1.0, changefreq: 'daily' },
     { path: '/about', priority: 0.9, changefreq: 'monthly' },
     { path: '/services', priority: 0.9, changefreq: 'weekly' },
@@ -21,7 +25,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Service detail pages - dynamically generated from serviceData
-  const serviceRoutes = servicesData.map((service) => ({
+  const serviceRoutes: Array<{
+    path: string;
+    priority: number;
+    changefreq: 'daily' | 'monthly' | 'weekly' | 'always' | 'hourly' | 'yearly' | 'never';
+  }> = servicesData.map((service) => ({
     path: `/services/${service.slug}`,
     priority: 0.9,
     changefreq: 'weekly' as const,

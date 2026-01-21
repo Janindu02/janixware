@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import VideoPlayer from "../components/VideoPlayer";
+import PageAnimations from "../components/PageAnimations";
 
 // SEO-optimized metadata for About page
 export const metadata: Metadata = {
@@ -94,15 +95,16 @@ export default function AboutPage() {
       />
       <div className="min-h-screen bg-white text-slate-900">
         <Navigation activePage="About" />
+        <PageAnimations pageType="about" />
 
       <main>
         {/* Hero / Title Section */}
         <section className="bg-white py-16 md:py-20">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-6">
+            <h1 className="section-heading text-4xl md:text-5xl font-bold text-blue-900 mb-6">
               About Janixware - Software Development Company in Sri Lanka
             </h1>
-            <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="section-subheading text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
               We are a dedicated software development company in Sri Lanka, passionate about crafting simple, smart, and scalable software solutions that drive real business growth and efficiency. Based in Colombo, we serve clients worldwide.
             </p>
           </div>
@@ -113,8 +115,8 @@ export default function AboutPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               {/* Left Column - Text Content */}
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-6">
+              <div className="about-content">
+                <h2 className="section-heading text-3xl md:text-4xl font-bold text-blue-900 mb-6">
                   Our Journey: From Passion to Innovation in Sri Lanka
                 </h2>
                 <p className="text-slate-600 mb-4 leading-relaxed">
@@ -126,7 +128,7 @@ export default function AboutPage() {
               </div>
 
               {/* Right Column - Video */}
-              <div className="flex justify-center">
+              <div className="about-image flex justify-center">
                 <div className="relative w-full max-w-lg">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 rounded-3xl blur-2xl opacity-20"></div>
                   <div className="relative rounded-2xl shadow-2xl overflow-hidden">
@@ -144,12 +146,12 @@ export default function AboutPage() {
         {/* Meet Our Talented Team Section */}
         <section className="bg-white py-16 md:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-center text-3xl md:text-4xl font-bold text-blue-900 mb-12">
+            <h2 className="section-heading text-center text-3xl md:text-4xl font-bold text-blue-900 mb-12">
               Meet Our Talented Team
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* Founder / CEO */}
-              <div className="bg-slate-50 rounded-2xl border border-slate-100 p-6 flex flex-col items-center text-center hover:shadow-lg transition-shadow">
+              <div className="team-member bg-slate-50 rounded-2xl border border-slate-100 p-6 flex flex-col items-center text-center hover:shadow-lg transition-shadow">
                 <div className="h-24 w-24 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white text-2xl font-bold mb-4">
                   JA
                 </div>
@@ -163,7 +165,7 @@ export default function AboutPage() {
               {[1, 2, 3, 4, 5].map((index) => (
                 <div
                   key={index}
-                  className="bg-slate-50 rounded-2xl border border-slate-200 p-6 flex flex-col items-center text-center"
+                  className="team-member bg-slate-50 rounded-2xl border border-slate-200 p-6 flex flex-col items-center text-center"
                 >
                   <div className="h-24 w-24 rounded-full bg-slate-200 flex items-center justify-center mb-4">
                     <svg
@@ -195,7 +197,7 @@ export default function AboutPage() {
         {/* Our Core Values Section */}
         <section className="bg-slate-50 py-16 md:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-center text-3xl md:text-4xl font-bold text-blue-900 mb-12">
+            <h2 className="section-heading text-center text-3xl md:text-4xl font-bold text-blue-900 mb-12">
               Our Core Values
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -323,7 +325,7 @@ export default function AboutPage() {
               ].map((value, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 hover:shadow-md transition-shadow"
+                  className="value-card bg-white rounded-2xl shadow-sm border border-slate-100 p-6 hover:shadow-md transition-shadow"
                 >
                   <div className="text-blue-500 mb-4">{value.icon}</div>
                   <h3 className="text-xl font-bold text-blue-900 mb-3">
@@ -341,7 +343,7 @@ export default function AboutPage() {
         {/* Our Milestones Section */}
         <section className="bg-white py-16 md:py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-center text-3xl md:text-4xl font-bold text-blue-900 mb-12">
+            <h2 className="section-heading text-center text-3xl md:text-4xl font-bold text-blue-900 mb-12">
               Our Journey & Future Goals
             </h2>
             <div className="relative pl-8 md:pl-12">
@@ -351,7 +353,7 @@ export default function AboutPage() {
               {/* Milestones */}
               <div className="space-y-8">
                 {/* Actual Milestone */}
-                <div className="relative pl-8">
+                <div className="milestone-item relative pl-8">
                   {/* Circle Marker - Solid for achieved */}
                   <div className="absolute left-[-20px] md:left-[-28px] top-1 h-4 w-4 rounded-full bg-blue-500 border-4 border-white shadow-sm"></div>
                   <div className="text-lg font-bold text-blue-700 mb-2">
@@ -390,7 +392,7 @@ export default function AboutPage() {
                     isGoal: true,
                   },
                 ].map((milestone, index) => (
-                  <div key={index} className="relative pl-8">
+                  <div key={index} className="milestone-item relative pl-8">
                     {/* Circle Marker - Outline for goals */}
                     <div className={`absolute left-[-20px] md:left-[-28px] top-1 h-4 w-4 rounded-full border-4 border-white shadow-sm ${
                       milestone.isGoal 
@@ -418,7 +420,7 @@ export default function AboutPage() {
         </section>
 
         {/* Call to Action Section */}
-        <section className="bg-gradient-to-r from-blue-50 to-blue-100 py-16 md:py-20">
+        <section className="cta-section bg-gradient-to-r from-blue-50 to-blue-100 py-16 md:py-20">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-6">
               Ready to Collaborate on Your Next Big Idea?

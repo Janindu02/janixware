@@ -3,6 +3,7 @@ import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import ContactForm from "../components/ContactForm";
 import ContactFAQ from "../components/ContactFAQ";
+import PageAnimations from "../components/PageAnimations";
 
 const faqs = [
   {
@@ -63,15 +64,16 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <Navigation activePage="Contact" />
+      <PageAnimations pageType="contact" />
 
       <main>
         {/* Hero Section */}
         <section className="bg-white py-16 md:py-20">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-6">
+            <h1 className="section-heading text-4xl md:text-5xl font-bold text-blue-900 mb-6">
               Contact Us
             </h1>
-            <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="section-subheading text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
               We&apos;re here to help you turn your vision into reality. Reach
               out to us with any questions, project inquiries, or just to say
               hello.
@@ -84,7 +86,7 @@ export default function ContactPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-12 items-start">
               {/* Left Column - Contact Form */}
-              <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-8">
+              <div className="contact-form bg-white rounded-2xl shadow-sm border border-slate-100 p-8">
                 <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-3">
                   Send Us a Message
                 </h2>
@@ -98,7 +100,7 @@ export default function ContactPage() {
               {/* Right Column - Direct Contact + FAQ */}
               <div className="space-y-8">
                 {/* Direct Contact */}
-                <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-8">
+                <div className="contact-info bg-white rounded-2xl shadow-sm border border-slate-100 p-8">
                   <h3 className="text-2xl font-bold text-blue-900 mb-3">
                     Direct Contact
                   </h3>
@@ -144,7 +146,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* FAQ Section */}
-                <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-8">
+                <div className="contact-faq bg-white rounded-2xl shadow-sm border border-slate-100 p-8">
                   <h3 className="text-2xl font-bold text-blue-900 mb-3">
                     Frequently Asked Questions
                   </h3>
@@ -160,7 +162,7 @@ export default function ContactPage() {
         </section>
 
         {/* Call to Action Section */}
-        <section className="bg-gradient-to-r from-blue-900 to-blue-800 py-16 md:py-20">
+        <section className="cta-section bg-gradient-to-r from-blue-900 to-blue-800 py-16 md:py-20">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Ready to Transform Your Ideas?

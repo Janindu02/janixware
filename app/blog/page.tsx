@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import PageAnimations from "../components/PageAnimations";
 
 // SEO-optimized metadata for Blog page
 export const metadata: Metadata = {
@@ -119,6 +120,7 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <Navigation activePage="Blog" />
+      <PageAnimations pageType="blog" />
 
       <main>
         {/* Hero Section */}
@@ -126,10 +128,10 @@ export default function BlogPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               <div>
-                <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">
+                <h1 className="section-heading text-4xl md:text-5xl font-bold text-blue-900 mb-4">
                   Blog & Insights
                 </h1>
-                <p className="text-lg md:text-xl text-slate-600 max-w-3xl">
+                <p className="section-subheading text-lg md:text-xl text-slate-600 max-w-3xl">
                   Stay updated with Janixware&apos;s thoughts on software,
                   technology, and business solutions.
                 </p>
@@ -166,7 +168,7 @@ export default function BlogPage() {
                 {blogPosts.map((post) => (
                   <article
                     key={post.id}
-                    className="bg-white border-b border-slate-200 pb-8 last:border-b-0 last:pb-0"
+                    className="blog-post bg-white border-b border-slate-200 pb-8 last:border-b-0 last:pb-0"
                   >
                     {post.image && (
                       <div className="mb-6 rounded-2xl overflow-hidden">
@@ -238,7 +240,7 @@ export default function BlogPage() {
 
               {/* Sidebar */}
               <div className="lg:col-span-1">
-                <aside className="space-y-8 sticky top-24">
+                <aside className="blog-sidebar space-y-8 sticky top-24">
                   {/* Categories */}
                   <div className="bg-white rounded-2xl border border-slate-100 p-6">
                     <h3 className="text-xl font-bold text-blue-900 mb-4">

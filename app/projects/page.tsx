@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import PageAnimations from "../components/PageAnimations";
 
 // SEO-optimized metadata for Projects page
 export const metadata: Metadata = {
@@ -91,12 +92,13 @@ export default function ProjectsPage() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <Navigation activePage="Projects" />
+      <PageAnimations pageType="projects" />
 
       <main>
         {/* Hero / Title Section */}
         <section className="bg-white py-16 md:py-20">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">
+            <h1 className="section-heading text-4xl md:text-5xl font-bold text-blue-900 mb-4">
               Our Latest Projects
             </h1>
           </div>
@@ -110,7 +112,7 @@ export default function ProjectsPage() {
               {filters.map((filter, index) => (
                 <button
                   key={filter}
-                  className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${
+                  className={`filter-button px-5 py-2 rounded-full text-sm font-medium transition-colors ${
                     index === 0
                       ? "bg-blue-500 text-white shadow-md"
                       : "bg-white border border-slate-200 text-slate-600 hover:border-blue-400 hover:text-blue-600"
@@ -126,7 +128,7 @@ export default function ProjectsPage() {
               {projects.map((project, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-md transition-shadow flex flex-col"
+                  className="project-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-md transition-shadow flex flex-col"
                 >
                   {/* Project Image with Title Overlay */}
                   <div className="relative h-48 overflow-hidden">

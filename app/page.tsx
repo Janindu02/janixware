@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import FAQAccordion from "./components/FAQAccordion";
+import HomeAnimations from "./components/HomeAnimations";
 import { faqData } from "./faq/page";
 
 // SEO-optimized metadata for homepage
@@ -103,6 +104,7 @@ export default function MainPage() {
       />
       <div className="min-h-screen bg-white text-slate-900">
         <Navigation activePage="Home" />
+        <HomeAnimations />
 
         <main>
         {/* Hero Section */}
@@ -114,13 +116,13 @@ export default function MainPage() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               {/* Left Column - Text Content */}
               <div>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-blue-900 leading-tight mb-6">
+                <h1 className="hero-title text-3xl md:text-4xl lg:text-5xl font-extrabold text-blue-900 leading-tight mb-6">
                   Janixware: We Build Simple and Smart Software Solutions in Sri Lanka
                 </h1>
-                <p className="text-base text-slate-600 mb-8 max-w-lg leading-relaxed">
+                <p className="hero-description text-base text-slate-600 mb-8 max-w-lg leading-relaxed">
                   Janixware is a leading software development company in Sri Lanka, serving clients globally. We create websites, custom software, and mobile apps that help businesses work better, save time, and grow. Our expert team in Colombo, Sri Lanka delivers simple, smart software solutions tailored to your needs. Specializing in web development, custom software development, mobile app development, API development, system automation, and digital transformation services for businesses worldwide.
                 </p>
-                <div className="flex flex-wrap gap-4">
+                <div className="hero-buttons flex flex-wrap gap-4">
                   <Link
                     href="/services"
                     className="px-8 py-3 rounded-full bg-blue-500 text-white font-semibold shadow-lg hover:bg-blue-600 transition-colors inline-block text-center"
@@ -146,7 +148,7 @@ export default function MainPage() {
                       alt="Janixware software development company in Sri Lanka - Building custom software, web applications, and mobile apps"
                       width={600}
                       height={400}
-                      className="w-full h-auto object-cover rounded-2xl"
+                      className="hero-image w-full h-auto object-cover rounded-2xl"
           priority
           loading="eager"
           fetchPriority="high"
@@ -161,10 +163,10 @@ export default function MainPage() {
         {/* Welcome Section */}
         <section id="about" className="bg-white py-16 md:py-20">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-6">
+            <h2 className="section-heading text-3xl md:text-4xl font-bold text-blue-900 mb-6">
               Leading Software Development Company in Sri Lanka
             </h2>
-            <p className="text-lg text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className="section-subheading text-lg text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed">
               At Janixware, we are a trusted software development company in Sri Lanka, transforming innovative ideas into robust, scalable software solutions. Our dedication to quality and client success drives us to deliver exceptional web development, custom software, and mobile app development services that empower businesses worldwide to thrive in the digital age. We&apos;re more than developers; we&apos;re your partners in progress.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
@@ -175,7 +177,7 @@ export default function MainPage() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex flex-col items-center gap-3"
+                  className="feature-icon flex flex-col items-center gap-3"
                 >
                   <div className="h-16 w-16 rounded-full bg-blue-50 flex items-center justify-center p-3">
                     <Image
@@ -204,10 +206,10 @@ export default function MainPage() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
+              <h2 className="section-heading text-3xl md:text-4xl font-bold text-blue-900 mb-4">
                 Software Development Services in Sri Lanka
               </h2>
-              <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              <p className="section-subheading text-lg text-slate-600 max-w-3xl mx-auto">
                 Explore our comprehensive range of software development services designed to bring your digital vision to life. From web development to custom software solutions, we help businesses in Sri Lanka and worldwide streamline operations and achieve their goals.
               </p>
             </div>
@@ -337,7 +339,7 @@ export default function MainPage() {
               ].map((service, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 hover:shadow-md transition-shadow"
+                  className="service-card bg-white rounded-2xl shadow-sm border border-slate-100 p-6 hover:shadow-md transition-shadow"
                 >
                   <div className="text-blue-500 mb-4">{service.icon}</div>
                   <h3 className="text-xl font-bold text-blue-900 mb-3">
@@ -357,7 +359,7 @@ export default function MainPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               {/* Left Column - Image */}
-              <div className="order-2 md:order-1">
+              <div className="why-choose-image order-2 md:order-1">
                 <div className="rounded-2xl overflow-hidden shadow-xl">
                   <Image
                     src="/image1.jpg"
@@ -371,8 +373,8 @@ export default function MainPage() {
               </div>
 
               {/* Right Column - Text Content */}
-              <div className="order-1 md:order-2">
-                <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-6">
+              <div className="why-choose-content order-1 md:order-2">
+                <h2 className="section-heading text-3xl md:text-4xl font-bold text-blue-900 mb-6">
                   Why Choose Us?
                 </h2>
                 <p className="text-lg text-slate-600 mb-8 leading-relaxed">
@@ -534,10 +536,10 @@ export default function MainPage() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
+              <h2 className="section-heading text-3xl md:text-4xl font-bold text-blue-900 mb-4">
                 How We Work
               </h2>
-              <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              <p className="section-subheading text-lg text-slate-600 max-w-3xl mx-auto">
                 Our streamlined process ensures efficient development and
                 successful project delivery, from concept to launch.
           </p>
@@ -572,7 +574,7 @@ export default function MainPage() {
               ].map((step, index) => (
                 <div
                   key={index}
-                  className="bg-slate-50 rounded-2xl border border-slate-200 p-6 hover:shadow-lg transition-shadow"
+                  className="process-step bg-slate-50 rounded-2xl border border-slate-200 p-6 hover:shadow-lg transition-shadow"
                 >
                   <div className="text-sm font-semibold text-slate-400 mb-2">
                     {step.num}
@@ -724,13 +726,13 @@ export default function MainPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="bg-white py-16 md:py-20">
+        <section className="faq-section bg-white py-16 md:py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
+              <h2 className="section-heading text-3xl md:text-4xl font-bold text-blue-900 mb-4">
                 Frequently Asked Questions
               </h2>
-              <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              <p className="section-subheading text-lg text-slate-600 max-w-3xl mx-auto">
                 Find answers to common questions about our software development
                 services and process.
               </p>
@@ -745,7 +747,7 @@ export default function MainPage() {
         </section>
 
         {/* Call to Action Section */}
-        <section className="bg-blue-500 py-16 md:py-20">
+        <section className="cta-section bg-blue-500 py-16 md:py-20">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Have an idea or a project? Let&apos;s build it together.

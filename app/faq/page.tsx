@@ -22,6 +22,14 @@ export const metadata: Metadata = {
       "Find answers to frequently asked questions about Janixware's software development services in Sri Lanka.",
     url: "https://www.janixware.com/faq",
     type: "website",
+    images: [
+      {
+        url: "https://www.janixware.com/coverimage.png",
+        width: 1200,
+        height: 630,
+        alt: "Janixware FAQ - Software Development Services",
+      },
+    ],
   },
   alternates: {
     canonical: "https://www.janixware.com/faq",

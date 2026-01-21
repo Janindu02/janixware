@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import MobileMenuButton from "./MobileMenuButton";
 
 interface NavigationProps {
   activePage?: string;
@@ -57,21 +58,7 @@ export default function Navigation({ activePage }: NavigationProps) {
           </a>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden p-2 text-slate-600">
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
+          <MobileMenuButton navItems={navItems} activePage={activePage} />
         </div>
       </div>
     </header>

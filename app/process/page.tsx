@@ -1,6 +1,40 @@
+import { Metadata } from "next";
 import Link from "next/link";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+
+// SEO-optimized metadata for Process page
+export const metadata: Metadata = {
+  title: "Our Development Process - Software Development Workflow | Janixware",
+  description:
+    "Learn about Janixware's transparent software development process in Sri Lanka. From understanding your idea to launch and support, discover our 4-step methodology for delivering exceptional software solutions.",
+  keywords: [
+    "software development process",
+    "web development process Sri Lanka",
+    "custom software development workflow",
+    "software development methodology",
+    "Janixware development process",
+    "software development steps",
+  ],
+  openGraph: {
+    title: "Our Development Process - Janixware",
+    description:
+      "Learn about Janixware's transparent software development process in Sri Lanka. From understanding your idea to launch and support.",
+    url: "https://www.janixware.com/process",
+    type: "website",
+    images: [
+      {
+        url: "https://www.janixware.com/coverimage.png",
+        width: 1200,
+        height: 630,
+        alt: "Janixware Development Process",
+      },
+    ],
+  },
+  alternates: {
+    canonical: "https://www.janixware.com/process",
+  },
+};
 
 const steps = [
   {

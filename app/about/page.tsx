@@ -22,6 +22,14 @@ export const metadata: Metadata = {
       "Learn about Janixware, a leading software development company in Sri Lanka. Founded by Janindu Amaraweera, we specialize in custom software, web development, and mobile apps.",
     url: "https://www.janixware.com/about",
     type: "website",
+    images: [
+      {
+        url: "https://www.janixware.com/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Janixware - Software Development Company in Sri Lanka",
+      },
+    ],
   },
   alternates: {
     canonical: "https://www.janixware.com/about",

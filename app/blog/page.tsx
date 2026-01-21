@@ -1,9 +1,39 @@
-"use client";
-
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+
+// SEO-optimized metadata for Blog page
+export const metadata: Metadata = {
+  title: "Blog & Insights - Software Development Blog | Janixware",
+  description:
+    "Read Janixware's blog for insights on software development, web development, technology trends, and business solutions in Sri Lanka.",
+  keywords: [
+    "software development blog",
+    "web development blog Sri Lanka",
+    "technology blog",
+    "software solutions blog",
+  ],
+  openGraph: {
+    title: "Blog & Insights - Janixware",
+    description:
+      "Read Janixware's blog for insights on software development, web development, and technology trends.",
+    url: "https://www.janixware.com/blog",
+    type: "website",
+    images: [
+      {
+        url: "https://www.janixware.com/coverimage.png",
+        width: 1200,
+        height: 630,
+        alt: "Janixware Blog - Software Development Insights",
+      },
+    ],
+  },
+  alternates: {
+    canonical: "https://www.janixware.com/blog",
+  },
+};
 
 const blogPosts = [
   {

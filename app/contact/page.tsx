@@ -1,9 +1,8 @@
-"use client";
-
-import { useState } from "react";
 import { Metadata } from "next";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import ContactForm from "../components/ContactForm";
+import ContactFAQ from "../components/ContactFAQ";
 
 const faqs = [
   {
@@ -28,72 +27,30 @@ const faqs = [
   },
 ];
 
+// SEO-optimized metadata for Contact page
+export const metadata: Metadata = {
+  title: "Contact Us - Software Development Company in Sri Lanka | Janixware",
+  description:
+    "Contact Janixware, a leading software development company in Sri Lanka. Get in touch for custom software, web development, mobile apps, and digital transformation services. Email: janixware@gmail.com | Phone: +94 713 974 674",
+  keywords: [
+    "contact Janixware",
+    "software development company Sri Lanka contact",
+    "web development contact Sri Lanka",
+    "custom software contact",
+  ],
+  openGraph: {
+    title: "Contact Us - Janixware Software Development Company",
+    description:
+      "Contact Janixware for custom software development, web development, and mobile app services in Sri Lanka.",
+    url: "https://www.janixware.com/contact",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://www.janixware.com/contact",
+  },
+};
+
 export default function ContactPage() {
-  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<{
-    type: "success" | "error" | null;
-    message: string;
-  }>({ type: null, message: "" });
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus({ type: null, message: "" });
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setSubmitStatus({
-          type: "success",
-          message: data.message || "Message sent successfully!",
-        });
-        setFormData({ name: "", email: "", company: "", message: "" });
-
-        // Optionally open WhatsApp with pre-filled message
-        if (data.whatsappUrl) {
-          // You can uncomment this to automatically open WhatsApp
-          // window.open(data.whatsappUrl, '_blank');
-        }
-      } else {
-        setSubmitStatus({
-          type: "error",
-          message: data.error || "Failed to send message. Please try again.",
-        });
-      }
-    } catch (error) {
-      setSubmitStatus({
-        type: "error",
-        message: "An error occurred. Please try again later.",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
@@ -127,97 +84,7 @@ export default function ContactPage() {
                   Fill out the form below and we&apos;ll get back to you
                   promptly.
                 </p>
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  {submitStatus.type && (
-                    <div
-                      className={`p-4 rounded-xl ${
-                        submitStatus.type === "success"
-                          ? "bg-green-50 text-green-800 border border-green-200"
-                          : "bg-red-50 text-red-800 border border-red-200"
-                      }`}
-                    >
-                      {submitStatus.message}
-                    </div>
-                  )}
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-slate-700 mb-2"
-                    >
-                      Your Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      placeholder="John Doe"
-                      className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-slate-700 mb-2"
-                    >
-                      Your Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      placeholder="john@example.com"
-                      className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="company"
-                      className="block text-sm font-medium text-slate-700 mb-2"
-                    >
-                      Company (Optional)
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      placeholder="Your Company Name"
-                      className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-slate-700 mb-2"
-                    >
-                      Your Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={6}
-                      placeholder="Tell us about your project or inquiry..."
-                      className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-vertical"
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full px-6 py-3 rounded-full bg-blue-500 text-white font-semibold shadow-lg hover:bg-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {isSubmitting ? "Sending..." : "Submit Message"}
-                  </button>
-                </form>
+                <ContactForm />
               </div>
 
               {/* Right Column - Direct Contact + FAQ */}
@@ -277,48 +144,7 @@ export default function ContactPage() {
                     Find quick answers to common questions about our services
                     and process.
                   </p>
-                  <div className="space-y-3">
-                    {faqs.map((faq, index) => (
-                      <div
-                        key={index}
-                        className="border border-slate-200 rounded-xl overflow-hidden"
-                      >
-                        <button
-                          type="button"
-                          onClick={() =>
-                            setOpenFAQ(openFAQ === index ? null : index)
-                          }
-                          className="w-full px-4 py-4 flex items-center justify-between text-left hover:bg-slate-50 transition-colors"
-                        >
-                          <span className="font-medium text-slate-700">
-                            {faq.question}
-                          </span>
-                          <svg
-                            className={`w-5 h-5 text-slate-500 transition-transform ${
-                              openFAQ === index ? "rotate-180" : ""
-                            }`}
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M19 9l-7 7-7-7"
-                            />
-                          </svg>
-                        </button>
-                        {openFAQ === index && (
-                          <div className="px-4 pb-4">
-                            <p className="text-sm text-slate-600 leading-relaxed">
-                              {faq.answer}
-                            </p>
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
+                  <ContactFAQ faqs={faqs} />
                 </div>
               </div>
             </div>

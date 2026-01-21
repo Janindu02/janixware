@@ -44,9 +44,11 @@ export default function FAQAccordion({
             <button
               type="button"
               onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
-              className="w-full px-6 py-5 flex items-center justify-between text-left"
+              className="w-full px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left touch-manipulation"
+              aria-expanded={openFAQ === index}
+              aria-controls={`faq-answer-${index}`}
             >
-              <span className="font-semibold text-blue-900 pr-4">
+              <span className="font-semibold text-blue-900 pr-4 text-sm sm:text-base">
                 {faq.question}
               </span>
               <svg
@@ -66,8 +68,11 @@ export default function FAQAccordion({
               </svg>
             </button>
             {openFAQ === index && (
-              <div className="px-6 pb-5">
-                <p className="text-slate-600 leading-relaxed">{faq.answer}</p>
+              <div
+                id={`faq-answer-${index}`}
+                className="px-4 sm:px-6 pb-4 sm:pb-5 pt-2"
+              >
+                <p className="text-slate-600 leading-relaxed text-sm sm:text-base">{faq.answer}</p>
               </div>
             )}
           </div>

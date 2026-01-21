@@ -602,6 +602,38 @@ export default function MainPage() {
               </p>
             </div>
 
+            {/* Coming Soon Message */}
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-12 text-center">
+              <div className="max-w-2xl mx-auto">
+                <div className="mb-6">
+                  <svg
+                    className="w-20 h-20 text-blue-500 mx-auto"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold text-blue-900 mb-4">
+                  Coming Soon
+                </h3>
+                <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                  We&apos;re at the initial stage of building our business and are
+                  excited to showcase client reviews and testimonials soon. As we
+                  complete projects and gather feedback, we&apos;ll be sharing our
+                  clients&apos; experiences here. Check back soon to see what our
+                  partners have to say about working with Janixware!
+                </p>
+              </div>
+            </div>
+
+            {/* COMMENTED OUT - For future use when actual client testimonials are available
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               {[
                 {
@@ -674,6 +706,7 @@ export default function MainPage() {
                 Read More Reviews
               </Link>
             </div>
+            */}
           </div>
         </section>
 

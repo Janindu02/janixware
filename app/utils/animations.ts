@@ -3,15 +3,15 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// Register ScrollTrigger plugin
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
-
-// Ensure ScrollTrigger is available
+// Register ScrollTrigger plugin only on client side
 let scrollTriggerReady = false;
 if (typeof window !== "undefined") {
-  scrollTriggerReady = true;
+  try {
+    gsap.registerPlugin(ScrollTrigger);
+    scrollTriggerReady = true;
+  } catch (e) {
+    console.warn("Failed to register ScrollTrigger:", e);
+  }
 }
 
 // Hero section animations

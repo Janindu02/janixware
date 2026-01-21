@@ -1,6 +1,40 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+
+// SEO-optimized metadata for Projects page
+export const metadata: Metadata = {
+  title: "Our Projects - Software Development Portfolio | Janixware Sri Lanka",
+  description:
+    "Explore Janixware's software development projects in Sri Lanka. View our portfolio of custom software, web development, mobile apps, and digital transformation solutions for businesses worldwide.",
+  keywords: [
+    "Janixware projects",
+    "software development portfolio",
+    "web development projects Sri Lanka",
+    "custom software projects",
+    "mobile app projects",
+    "software company portfolio Sri Lanka",
+  ],
+  openGraph: {
+    title: "Our Projects - Janixware Software Development Portfolio",
+    description:
+      "Explore Janixware's software development projects in Sri Lanka. View our portfolio of custom software, web development, and mobile apps.",
+    url: "https://www.janixware.com/projects",
+    type: "website",
+    images: [
+      {
+        url: "https://www.janixware.com/coverimage.png",
+        width: 1200,
+        height: 630,
+        alt: "Janixware Projects Portfolio",
+      },
+    ],
+  },
+  alternates: {
+    canonical: "https://www.janixware.com/projects",
+  },
+};
 
 const filters = [
   "All",

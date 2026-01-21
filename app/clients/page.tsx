@@ -1,6 +1,40 @@
+import { Metadata } from "next";
 import Link from "next/link";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+
+// SEO-optimized metadata for Clients page
+export const metadata: Metadata = {
+  title: "Client Testimonials - Software Development Reviews | Janixware",
+  description:
+    "Read client testimonials and reviews about Janixware's software development services in Sri Lanka. Learn how businesses worldwide have transformed their operations with our custom software solutions.",
+  keywords: [
+    "Janixware reviews",
+    "software development testimonials",
+    "client testimonials Sri Lanka",
+    "software company reviews",
+    "web development reviews",
+    "custom software testimonials",
+  ],
+  openGraph: {
+    title: "Client Testimonials - Janixware Software Development Reviews",
+    description:
+      "Read client testimonials and reviews about Janixware's software development services in Sri Lanka.",
+    url: "https://www.janixware.com/clients",
+    type: "website",
+    images: [
+      {
+        url: "https://www.janixware.com/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Janixware Client Testimonials",
+      },
+    ],
+  },
+  alternates: {
+    canonical: "https://www.janixware.com/clients",
+  },
+};
 
 // COMMENTED OUT - For future use when actual client testimonials are available
 /*

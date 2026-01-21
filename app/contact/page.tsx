@@ -44,6 +44,14 @@ export const metadata: Metadata = {
       "Contact Janixware for custom software development, web development, and mobile app services in Sri Lanka.",
     url: "https://www.janixware.com/contact",
     type: "website",
+    images: [
+      {
+        url: "https://www.janixware.com/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Contact Janixware - Software Development Company in Sri Lanka",
+      },
+    ],
   },
   alternates: {
     canonical: "https://www.janixware.com/contact",

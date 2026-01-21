@@ -80,9 +80,12 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
-    apple: "/logo.png",
+    icon: [
+      { url: "/icon.png", sizes: "any" },
+      { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/icon.png",
   },
   verification: {
     // Add Google Search Console verification when available

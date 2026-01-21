@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Janixware - Software Development Company in Sri Lanka",
   // title: "Janixware - Software Development Company in Sri Lanka | Custom Software & Web Development",
   description:
-    "Janixware is a leading software development company in Sri Lanka. We provide custom software development, web development, mobile apps, and digital transformation services. Contact us for your software solutions.",
+    "Janixware is a leading software development company in Sri Lanka, serving clients globally. We provide custom software development, web development, mobile apps, API development, system automation, and digital transformation services. Based in Colombo, Sri Lanka. Contact us for your software solutions.",
   keywords: [
     "software development company Sri Lanka",
     "custom software development Sri Lanka",
@@ -23,19 +23,32 @@ export const metadata: Metadata = {
     "web design Sri Lanka",
     "custom software solutions",
     "software development services",
+    "Janixware",
+    "software development Colombo",
+    "web development company Sri Lanka",
+    "API development Sri Lanka",
+    "system automation Sri Lanka",
+    "software company Colombo",
+    "custom software development Colombo",
+    "mobile app development company Sri Lanka",
+    "digital transformation services Sri Lanka",
+    "software solutions Sri Lanka",
+    "web development services Sri Lanka",
+    "software development services global",
+    "custom software solutions worldwide",
   ],
   openGraph: {
     title: "Janixware - Software Development Company in Sri Lanka",
     description:
-      "Leading software development company in Sri Lanka providing custom software, web development, mobile apps, and digital transformation services.",
+      "Leading software development company in Sri Lanka providing custom software, web development, mobile apps, API development, system automation, and digital transformation services. Serving clients globally from Colombo, Sri Lanka.",
     url: "https://www.janixware.com",
     siteName: "Janixware",
     images: [
       {
-        url: "/coverimage.png",
+        url: "https://www.janixware.com/coverimage.png",
         width: 1200,
         height: 630,
-        alt: "Janixware - Software Development Company",
+        alt: "Janixware - Software Development Company in Sri Lanka",
       },
     ],
     locale: "en_US",
@@ -45,8 +58,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Janixware - Software Development Company in Sri Lanka",
     description:
-      "Leading software development company in Sri Lanka providing custom software, web development, mobile apps, and digital transformation services.",
-    images: ["/coverimage.png"],
+      "Leading software development company in Sri Lanka providing custom software, web development, mobile apps, API development, system automation, and digital transformation services. Serving clients globally.",
+    images: ["https://www.janixware.com/coverimage.png"],
   },
   alternates: {
     canonical: "https://www.janixware.com",
@@ -101,11 +114,11 @@ export default function MainPage() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               {/* Left Column - Text Content */}
               <div>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-blue-900 leading-tight mb-6">
-                  We Build Simple and Smart Software Solutions
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-blue-900 leading-tight mb-6">
+                  Janixware: We Build Simple and Smart Software Solutions in Sri Lanka
                 </h1>
-                <p className="text-lg text-slate-600 mb-8 max-w-lg leading-relaxed">
-                  Janixware is a leading software development company in Sri Lanka. We create websites, custom software, and mobile apps that help businesses work better, save time, and grow. Our expert team delivers simple, smart software solutions tailored to your needs.
+                <p className="text-base text-slate-600 mb-8 max-w-lg leading-relaxed">
+                  Janixware is a leading software development company in Sri Lanka, serving clients globally. We create websites, custom software, and mobile apps that help businesses work better, save time, and grow. Our expert team in Colombo, Sri Lanka delivers simple, smart software solutions tailored to your needs. Specializing in web development, custom software development, mobile app development, API development, system automation, and digital transformation services for businesses worldwide.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Link

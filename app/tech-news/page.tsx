@@ -22,6 +22,14 @@ export const metadata: Metadata = {
       "Stay updated with the latest technology news from top sources including Google Developers Blog, TechCrunch, and CNET.",
     url: "https://www.janixware.com/tech-news",
     type: "website",
+    images: [
+      {
+        url: "https://www.janixware.com/coverimage.png",
+        width: 1200,
+        height: 630,
+        alt: "Tech World News - Janixware",
+      },
+    ],
   },
   alternates: {
     canonical: "https://www.janixware.com/tech-news",

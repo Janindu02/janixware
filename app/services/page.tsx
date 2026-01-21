@@ -28,6 +28,14 @@ export const metadata: Metadata = {
       "Comprehensive software development services including custom software, web development, mobile apps, API development, and system automation in Sri Lanka.",
     url: "https://www.janixware.com/services",
     type: "website",
+    images: [
+      {
+        url: "https://www.janixware.com/coverimage.png",
+        width: 1200,
+        height: 630,
+        alt: "Janixware Software Development Services in Sri Lanka",
+      },
+    ],
   },
   alternates: {
     canonical: "https://www.janixware.com/services",

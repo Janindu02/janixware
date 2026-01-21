@@ -21,6 +21,14 @@ export const metadata: Metadata = {
       "Read Janixware's blog for insights on software development, web development, and technology trends.",
     url: "https://www.janixware.com/blog",
     type: "website",
+    images: [
+      {
+        url: "https://www.janixware.com/coverimage.png",
+        width: 1200,
+        height: 630,
+        alt: "Janixware Blog - Software Development Insights",
+      },
+    ],
   },
   alternates: {
     canonical: "https://www.janixware.com/blog",

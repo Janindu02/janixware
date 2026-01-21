@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import PageAnimations from "../components/PageAnimations";
 
 // SEO-optimized metadata for Clients page
 export const metadata: Metadata = {
@@ -74,15 +75,16 @@ export default function ClientsPage() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <Navigation activePage="Clients" />
+      <PageAnimations pageType="clients" />
 
       <main>
         {/* Hero Section */}
         <section className="bg-white py-16 md:py-20">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-6">
+            <h1 className="section-heading text-4xl md:text-5xl font-bold text-blue-900 mb-6">
               What Our Clients Say
             </h1>
-            <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="section-subheading text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
               Hear directly from businesses who have transformed their operations
               with Janixware&apos;s software solutions.
             </p>
@@ -92,7 +94,7 @@ export default function ClientsPage() {
         {/* Coming Soon Message */}
         <section className="bg-slate-50 py-16 md:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-12 text-center">
+            <div className="coming-soon-card bg-white rounded-2xl shadow-sm border border-slate-200 p-12 text-center">
               <div className="max-w-2xl mx-auto">
                 <div className="mb-6">
                   <svg
@@ -126,7 +128,7 @@ export default function ClientsPage() {
 
 
         {/* Call to Action Section */}
-        <section className="bg-gradient-to-r from-blue-50 to-blue-100 py-16 md:py-20">
+        <section className="cta-section bg-gradient-to-r from-blue-50 to-blue-100 py-16 md:py-20">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
               Ready to Share Your Experience?

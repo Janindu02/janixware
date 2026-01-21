@@ -5,6 +5,7 @@ import React from "react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import TechIcon from "../components/TechIcon";
+import ServicesAnimations from "../components/ServicesAnimations";
 import { servicesData } from "./serviceData";
 
 // SEO-optimized metadata for Services page
@@ -214,15 +215,16 @@ export default function ServicesPage() {
       />
       <div className="min-h-screen bg-white text-slate-900">
         <Navigation activePage="Services" />
+        <ServicesAnimations />
 
       <main>
         {/* Hero / Heading Section */}
         <section className="bg-white py-16 md:py-20">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-6">
+            <h1 className="section-heading text-4xl md:text-5xl font-bold text-blue-900 mb-6">
               Software Development Services in Sri Lanka
             </h1>
-            <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="section-subheading text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
               Janixware empowers businesses in Sri Lanka and worldwide with robust and innovative software solutions tailored to their unique challenges and goals. From custom software development to web and mobile apps, we deliver excellence.
             </p>
           </div>
@@ -235,7 +237,7 @@ export default function ServicesPage() {
               {servicesData.map((service, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 flex flex-col hover:shadow-md transition-shadow"
+                  className="service-card bg-white rounded-2xl shadow-sm border border-slate-100 p-6 flex flex-col hover:shadow-md transition-shadow"
                 >
                   {/* Icon */}
                   <div className="flex justify-center mb-4">
@@ -276,14 +278,14 @@ export default function ServicesPage() {
         {/* Technologies & Tools Section */}
         <section className="bg-white py-16 md:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-center text-3xl md:text-4xl font-bold text-blue-900 mb-12">
+            <h2 className="section-heading text-center text-3xl md:text-4xl font-bold text-blue-900 mb-12">
               Technologies & Tools We Master
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 justify-items-center">
               {techStack.map((tech, index) => (
                 <div
                   key={index}
-                  className="flex flex-col items-center gap-3 text-center group hover:transform hover:scale-105 transition-transform duration-200"
+                  className="tech-icon flex flex-col items-center gap-3 text-center group hover:transform hover:scale-105 transition-transform duration-200"
                 >
                   {/* Technology Icon */}
                   <TechIcon icon={tech.icon} name={tech.name} />
@@ -297,7 +299,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Call to Action Section */}
-        <section className="bg-gradient-to-r from-blue-500 to-blue-600 py-16 md:py-20">
+        <section className="cta-section bg-gradient-to-r from-blue-500 to-blue-600 py-16 md:py-20">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Have an idea or a project? Let&apos;s build it together.

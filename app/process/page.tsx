@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import PageAnimations from "../components/PageAnimations";
 
 // SEO-optimized metadata for Process page
 export const metadata: Metadata = {
@@ -158,15 +159,16 @@ export default function ProcessPage() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <Navigation activePage="Process" />
+      <PageAnimations pageType="process" />
 
       <main>
         {/* Intro Section */}
         <section className="bg-white py-16 md:py-20">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-6">
+            <h1 className="section-heading text-4xl md:text-5xl font-bold text-blue-900 mb-6">
               Our Development Process
             </h1>
-            <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="section-subheading text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
               Discover the transparent and efficient methodology we've built for
               every Janixware project, designed to bring your vision to life
               with precision and efficiency.
@@ -178,10 +180,10 @@ export default function ProcessPage() {
         {steps.map((step) => (
           <section key={step.id} className={`${step.bg} py-16 md:py-20`}>
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center">
+              <div className="text-center process-step-item">
                 {/* Icon */}
                 <div className="flex justify-center mb-6">
-                  <div className="text-blue-500">{step.icon}</div>
+                  <div className="process-icon text-blue-500">{step.icon}</div>
                 </div>
 
                 {/* Heading */}
@@ -214,7 +216,7 @@ export default function ProcessPage() {
         ))}
 
         {/* Call to Action Section */}
-        <section className="bg-gradient-to-r from-blue-500 to-blue-600 py-16 md:py-20">
+        <section className="cta-section bg-gradient-to-r from-blue-500 to-blue-600 py-16 md:py-20">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Ready to Start Your Project?

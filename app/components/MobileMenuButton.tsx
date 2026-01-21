@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { gsap } from "gsap";
 
 interface MobileMenuButtonProps {
   navItems: Array<{ name: string; href: string }>;
@@ -13,6 +14,7 @@ export default function MobileMenuButton({
   activePage,
 }: MobileMenuButtonProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   // Close menu on escape key
   useEffect(() => {
@@ -41,6 +43,54 @@ export default function MobileMenuButton({
       document.addEventListener("mousedown", handleClickOutside);
     }
     return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isMobileMenuOpen]);
+
+  // Animate menu open/close
+  useEffect(() => {
+    if (menuRef.current) {
+      if (isMobileMenuOpen) {
+        gsap.fromTo(
+          menuRef.current,
+          {
+            opacity: 0,
+            y: -10,
+            scale: 0.95,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.3,
+            ease: "power2.out",
+          }
+        );
+        
+        // Animate menu items
+        gsap.fromTo(
+          menuRef.current.querySelectorAll("a"),
+          {
+            opacity: 0,
+            x: -20,
+          },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.4,
+            stagger: 0.05,
+            ease: "power2.out",
+            delay: 0.1,
+          }
+        );
+      } else {
+        gsap.to(menuRef.current, {
+          opacity: 0,
+          y: -10,
+          scale: 0.95,
+          duration: 0.2,
+          ease: "power2.in",
+        });
+      }
+    }
   }, [isMobileMenuOpen]);
 
   return (
@@ -77,10 +127,11 @@ export default function MobileMenuButton({
 
       {/* Mobile Menu Dropdown */}
       <div
-        className={`mobile-menu-container absolute top-full right-0 mt-2 w-72 rounded-2xl shadow-xl border border-slate-200/80 overflow-hidden transition-all duration-300 ease-in-out ${
+        ref={menuRef}
+        className={`mobile-menu-container absolute top-full right-0 mt-2 w-72 rounded-2xl shadow-xl border border-slate-200/80 overflow-hidden ${
           isMobileMenuOpen
-            ? "opacity-100 visible translate-y-0"
-            : "opacity-0 invisible -translate-y-2 pointer-events-none"
+            ? "visible"
+            : "invisible pointer-events-none"
         }`}
         style={{
           background: "rgba(255, 255, 255, 0.95)",

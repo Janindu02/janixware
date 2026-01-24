@@ -14,6 +14,15 @@ export async function POST(request: Request) {
       );
     }
 
+    // Check if environment variables are set
+    if (!process.env.SMTP_EMAIL || !process.env.SMTP_PASSWORD) {
+      console.error("Missing SMTP configuration");
+      return NextResponse.json(
+        { error: "Server configuration error: Missing email credentials" },
+        { status: 500 }
+      );
+    }
+
     // Configure the transporter with Gmail SMTP
     const transporter = nodemailer.createTransport({
       service: "gmail",

@@ -24,8 +24,10 @@ This guide will help you set up email and WhatsApp notifications for the contact
 
 3. **Add API key to environment variables:**
    - Create a `.env.local` file in the root directory
-   - Add: `RESEND_API_KEY=re_your_api_key_here`
-   - Replace `re_your_api_key_here` with your actual API key
+   - Add: `RESEND_API_KEY=zhwk cyzj huip zyjh`
+   - Replace `zhwk cyzj huip zyjh` with your actual API key
+    SMTP_EMAIL=janixware@gmail.com
+    SMTP_PASSWORD=zhwk cyzj huip zyjh
 
 4. **Update sender email (optional):**
    - In `app/api/contact/route.ts`, update the `from` field
